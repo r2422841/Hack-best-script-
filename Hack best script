@@ -1,0 +1,77 @@
+local username = "r00tmaster"
+local userId =9073113299 game.Players:GetUserIdFromNameAsync
+local avatarUrl = https://www.roblox.com/tr/users/9073113299/profile
+
+
+local gui = Instance.new("ScreenGui", game.CoreGui)
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 300, 0, 400)
+frame.Position = UDim2.new(0.3, 0, 0.3, 0)
+frame.BackgroundColor3 = Color3.fromRGB(15,15,15)
+
+local function addButton(name, func)
+	local btn = Instance.new("TextButton", frame)
+	btn.Size = UDim2.new(1, -20, 0, 35)
+	btn.Position = UDim2.new(0, 10, 0, #frame:GetChildren() * 40)
+	btn.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	btn.Text = name
+	btn.TextColor3 = Color3.new(1,1,1)
+	btn.MouseButton1Click:Connect(func)
+end
+
+-- decal spam (r00tmaster)
+addButton("decal spam", function()
+	for _, obj in pairs(workspace:GetDescendants()) do
+		if obj:IsA("BasePart") then
+			local decal = Instance.new("Decal", obj)
+			decal.Texture = avatarUrl
+		end
+	end
+end)
+
+-- skybox (r00tmaster)
+addButton("skybox", function()
+	local s = Instance.new("Sky", game.Lighting)
+
+sky.SkyboxBk = avatarUrl 
+sky.SkyboxDn = avatarUrl 
+sky.SkyboxFt = avatarUrl 
+sky.SkyboxLf = avatarUrl
+sky.SkyboxRt = avatarUrl 
+sky.SkyboxUp = avatarUrl 
+	
+	
+	
+	
+	
+end)
+
+-- hint (r00tmaster)
+addButton("hint", function()
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "r00tmaster",
+		Text = "r00tmaster ",
+		Duration = 10
+	})
+end)
+
+-- disco (red blue black )
+addButton("disco", function()
+	while true do
+		wait(0.2)
+		game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
+	end
+end)
+
+-- particles spam (herkese avatar parçacığı)
+addButton("particles spam", function()
+	for _, player in pairs(game.Players:GetPlayers()) do
+		if player.Character then
+			local p = Instance.new("ParticleEmitter")
+			p.Texture = avatarUrl
+			p.Rate = 50
+			p.Lifetime = NumberRange.new(2)
+			p.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+		end
+	end
+end)
